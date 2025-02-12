@@ -53,16 +53,16 @@ int fa0/1
 ip add 202.11.3.9 255.255.255.252
 no sh
 int fa1/0
-ip add 192.168.19.17 255.255.255.252
+ip add 192.168.3.17 255.255.255.252
 no sh
 router ospf 1
 router-id 6.6.6.1
 network 202.11.3.4 0.0.0.3 area 0
 network 202.11.3.8 0.0.0.3 area 0
-network 192.168.19.16 255.255.255. area 0
+network 192.168.3.16 255.255.255.252 area 0
 ip dhcp pool pool1
-network 192.168.19.16 255.255.255.252
-default-router 192.168.19.17
+network 192.168.3.16 255.255.255.252
+default-router 192.168.3.17
 
 
 # R-CS-ISPA-03
@@ -91,7 +91,7 @@ area 2 virtual-link 4.4.4.4
 # RB-ISPB-01
 
 -system identity set name=RB-ISPA-01
--ip add add address=202.11.3.3/30 interface=ether1
+-ip add add address=202.11.3.18/30 interface=ether1
 -ip add add address=202.11.3.21/30 interface=ether2
 -routing ospf area add name=area1 area-id=0.0.0.1
 -routing ospf area add name=area3 area-id=0.0.0.3
@@ -109,10 +109,10 @@ PERINGATAN: KALO BELOM CONNECT MATIIN DULU R-CS-ISPA-01 SAMA RB-ISPA-01 tapi di 
 
 -system identity set name=RB-ISPA-02
 -ip add add address=202.11.3.22/30 interface=ether1
--ip add add address=192.168.19.1/29 interface=ether2
+-ip add add address=192.168.3.1/29 interface=ether2
 -routing ospf area add name=area3 area-id=0.0.0.3
 -routing ospf network add network=202.11.3.20/30 area=area3
--routing ospf network add network=192.168.19.0/29 area=area3
+-routing ospf network add network=192.168.3.0/29 area=area3
 -ip firewall nat add chain=srcnat action Masquerade
 -ip dhcp-server setup
 -masukkin ether2
@@ -125,13 +125,13 @@ PERINGATAN: KALO BELOM CONNECT MATIIN DULU R-CS-ISPA-01 SAMA RB-ISPA-01 tapi di 
 -ip add add address=202.11.3.26/30 interface=ether1
 -ip add add address=202.11.3.29/30 interface=ether2
 -ip add add address=202.11.3.33/30 interface=ether3
--ip add add address=192.168.19.9/29 interface=ether4
+-ip add add address=192.168.3.9/29 interface=ether4
 -routing ospf area add name=area2 area-id=0.0.0.2
 -routing ospf area add name=area4 area-id=0.0.0.4
 -routing ospf network add network=202.11.3.24/30 area=area2
 -routing ospf network add network=202.11.3.28/30 area=area4
 -routing ospf network add network=202.11.3.32/30 area=area4
--routing ospf network add network=192.168.19.8/29 area=area4
+-routing ospf network add network=192.168.3.8/29 area=area4
 int bridge add name=loopback
 -routing ospf instance add router-id=4.4.4.4
 -ip add add add=4.4.4.4/24 int=loopback
@@ -148,10 +148,10 @@ ip firewall nat add chain=srcnat action=Masquerade
 
 -system identity set name=RB-ISPA-04
 -ip add add address=202.11.3.30/30 interface=ether1
--ip add add address=192.168.19.21/30 interface=ether1
+-ip add add address=192.168.3.21/30 interface=ether1
 -routing ospf area add name=area4 area-id=0.0.0.4
 -routing ospf network add network=202.11.3.28/30 area=area4
--routing ospf network add network=192.168.19.20/29 area=area4
+-routing ospf network add network=192.168.3.20/29 area=area4
 -ip firewall nat add chain=srcnat action Masquerade
 -ip dhcp-server setup
 -masukkin ether2
@@ -172,10 +172,10 @@ ip firewall nat add chain=srcnat action=Masquerade
 
 -system identity set name=RB-ISPA-06
 -ip add add address=202.11.3.38/30 interface=ether1
--ip add add address=192.168.19.25/30 interface=ether2
+-ip add add address=192.168.3.25/30 interface=ether2
 -routing ospf area add name=area4 area-id=0.0.0.4
 -routing ospf network add network=202.11.3.36/30 area=area4
--routing ospf network add network=192.168.19.24/29 area=area4
+-routing ospf network add network=192.168.3.24/29 area=area4
 -ip firewall nat add chain=srcnat action Masquerade
 -ip dhcp-server setup
 -masukkin ether2
