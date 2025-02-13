@@ -151,7 +151,7 @@ ip firewall nat add chain=srcnat action=Masquerade
 -ip add add address=192.168.3.21/30 interface=ether2
 -routing ospf area add name=area4 area-id=0.0.0.4
 -routing ospf network add network=202.11.3.28/30 area=area4
--routing ospf network add network=192.168.3.20/29 area=area4
+-routing ospf network add network=192.168.3.20/30 area=area4
 -ip firewall nat add chain=srcnat action Masquerade
 -ip dhcp-server setup
 -masukkin ether2
