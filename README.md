@@ -185,3 +185,26 @@ ip firewall nat add chain=srcnat action=Masquerade
 -"ip dhcp"         DI VPC YAAA BUKAN DI ROUTER
 
 ```
+
+## BGP SITE A
+
+```bash
+router bgp 65001
+bgp router-id 5.5.5.1
+neighbor 113.12.18.1 remote-as 65002
+neighbor 113.12.18.1 update-source fa0/0
+network 202.11.3.0 mask 255.255.255.252
+network 202.11.3.4 mask 255.255.255.252
+```
+
+## BGP SITE B
+
+```bash
+router bgp 65002
+bgp router-id 7.7.7.7
+neighbor 202.11.3.1 remote-as 65001
+neighbor 202.11.3.1 update-source fa2/0
+network 113.12.18.0 mask 255.255.255.252
+network 113.12.18.4 mask 255.255.255.252
+network 113.12.18.12 mask 255.255.255.252
+```
