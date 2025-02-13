@@ -88,7 +88,7 @@ network 202.11.3.24 0.0.0.3 area 2
 area 2 virtual-link 4.4.4.4
 
 
-# RB-ISPB-01
+# RB-ISPA-01
 
 -system identity set name=RB-ISPA-01
 -ip add add address=202.11.3.18/30 interface=ether1
@@ -97,7 +97,7 @@ area 2 virtual-link 4.4.4.4
 -routing ospf area add name=area3 area-id=0.0.0.3
 -routing ospf network add network=202.11.3.16/30 area=area1
 -routing ospf network add network=202.11.3.20/30 area=area3
-int bridge add name=loopback
+-int bridge add name=loopback
 -routing ospf instance add router-id=3.3.3.3
 -ip add add add=3.3.3.3/24 int=loopback
 -routing ospf network add network=3.3.3.0/24 area=area1
@@ -119,7 +119,7 @@ PERINGATAN: KALO BELOM CONNECT MATIIN DULU R-CS-ISPA-01 SAMA RB-ISPA-01 tapi di 
 -"ip dhcp"         DI VPC YAAA BUKAN DI ROUTER
 
 
-# RB-ISPB-03
+# RB-ISPA-03
 
 -system identity set name=RB-ISPA-03
 -ip add add address=202.11.3.26/30 interface=ether1
@@ -132,7 +132,7 @@ PERINGATAN: KALO BELOM CONNECT MATIIN DULU R-CS-ISPA-01 SAMA RB-ISPA-01 tapi di 
 -routing ospf network add network=202.11.3.28/30 area=area4
 -routing ospf network add network=202.11.3.32/30 area=area4
 -routing ospf network add network=192.168.3.8/29 area=area4
-int bridge add name=loopback
+-int bridge add name=loopback
 -routing ospf instance add router-id=4.4.4.4
 -ip add add add=4.4.4.4/24 int=loopback
 -routing ospf network add network=4.4.4.0/24 area=area2
@@ -175,7 +175,7 @@ ip firewall nat add chain=srcnat action=Masquerade
 -ip add add address=192.168.3.25/30 interface=ether2
 -routing ospf area add name=area4 area-id=0.0.0.4
 -routing ospf network add network=202.11.3.36/30 area=area4
--routing ospf network add network=192.168.3.24/29 area=area4
+-routing ospf network add network=192.168.3.24/30 area=area4
 -ip firewall nat add chain=srcnat action Masquerade
 -ip dhcp-server setup
 -masukkin ether2
