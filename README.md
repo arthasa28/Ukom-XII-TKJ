@@ -18,7 +18,7 @@ int fa1/0
 ip add 202.11.3.5 255.255.255.252
 no sh
 router ospf 1
-router-id 5.5.5.1
+router-id 5.5.3.1
 network 202.11.3.0 0.0.0.3 area 0
 network 202.11.3.4 0.0.0.3 area 0
 
@@ -36,10 +36,10 @@ int fa1/0
 ip add 202.11.3.17 255.255.255.252
 no sh
 int lo0
-ip add 1.1.1.1 255.255.255.0
+ip add 1.1.3.1 255.255.255.0
 router ospf 1 
-router-id 1.1.1.1
-network 1.1.1.0 0.0.0.255 area 0
+router-id 1.1.3.1
+network 1.1.3.0 0.0.0.255 area 0
 network 202.11.3.0 0.0.0.3 area 0
 network 202.11.3.12 0.0.0.3 area 0
 network 202.11.3.16 0.0.0.3 area 1
@@ -59,7 +59,7 @@ int fa1/0
 ip add 192.168.3.17 255.255.255.252
 no sh
 router ospf 1
-router-id 6.6.6.1
+router-id 6.6.3.1
 network 202.11.3.4 0.0.0.3 area 0
 network 202.11.3.8 0.0.0.3 area 0
 network 192.168.3.16 255.255.255.252 area 0
@@ -81,14 +81,14 @@ int fa1/0
 ip add 202.11.3.25 255.255.255.252
 no sh
 int lo0 
-ip add 2.2.2.2 255.255.255.0
+ip add 2.2.3.2 255.255.255.0
 router ospf 1
-router-id 2.2.2.2
-network 2.2.2.0 0.0.0.255 area 0
+router-id 2.2.3.2
+network 2.2.3.0 0.0.0.255 area 0
 network 202.11.3.12 0.0.0.3 area 0
 network 202.11.3.8 0.0.0.3 area 0
 network 202.11.3.24 0.0.0.3 area 2
-area 2 virtual-link 4.4.4.4
+area 2 virtual-link 4.4.3.4
 
 
 # RB-ISPA-01
@@ -104,7 +104,7 @@ area 2 virtual-link 4.4.4.4
 -routing ospf instance add router-id=3.3.3.3
 -ip add add add=3.3.3.3/24 int=loopback
 -routing ospf network add network=3.3.3.0/24 area=area1
--routing ospf virtual-link add neighbor-id=1.1.1.1 transit-area=area1
+-routing ospf virtual-link add neighbor-id=1.1.3.1 transit-area=area1
 PERINGATAN: KALO BELOM CONNECT MATIIN DULU R-CS-ISPA-01 SAMA RB-ISPA-01 tapi di simpen dlu "write buat cisco ama exp buat mikrotik"
 
 
@@ -136,10 +136,10 @@ PERINGATAN: KALO BELOM CONNECT MATIIN DULU R-CS-ISPA-01 SAMA RB-ISPA-01 tapi di 
 -routing ospf network add network=202.11.3.32/30 area=area4
 -routing ospf network add network=192.168.3.8/29 area=area4
 -int bridge add name=loopback
--routing ospf instance add router-id=4.4.4.4
--ip add add add=4.4.4.4/24 int=loopback
--routing ospf network add network=4.4.4.0/24 area=area2
--routing ospf virtual-link add neighbor-id=2.2.2.2 transit-area=area2
+-routing ospf instance add router-id=4.4.3.4
+-ip add add add=4.4.3.4/24 int=loopback
+-routing ospf network add network=4.4.3.0/24 area=area2
+-routing ospf virtual-link add neighbor-id=2.2.3.2 transit-area=area2
 PERINGATAN: KALO BELOM CONNECT MATIIN DULU R-CS-ISPA-03 SAMA RB-ISPA-03 tapi di simpen dlu "write buat cisco ama exp buat mikrotik"
 ip firewall nat add chain=srcnat action=Masquerade
 -ip dhcp-server setup
