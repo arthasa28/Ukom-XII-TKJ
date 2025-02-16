@@ -192,8 +192,12 @@ ip firewall nat add chain=srcnat action=Masquerade
 int fa2/0
 ip add 30.30.30.1 255.255.255.252
 no sh
+router ospf 1
+log-adjacency-changes
+redistribute bgp 3333 subnets
 router bgp 3333
-bgp router-id 5.5.5.1 ( opsional )
+no synchronization
+bgp log-neighbor-changes
 neighbor 30.30.30.2 remote-as 9999
 redistribute connected
 ```
@@ -204,8 +208,12 @@ redistribute connected
 int fa0/0
 ip add 30.30.30.2 255.255.255.252
 no sh
+router ospf 1
+log-adjacency-changes
+redistribute bgp 9999 subnets
 router bgp 9999
-bgp router-id 7.7.7.7 ( opsional )
+no synchronization
+bgp log-neighbor-changes
 neighbor 30.30.30.1 remote-as 9999
 redistribute connected
 ```
