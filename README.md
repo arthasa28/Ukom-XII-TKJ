@@ -198,6 +198,8 @@ redistribute bgp 3333 subnets
 router bgp 3333
 no synchronization
 bgp log-neighbor-changes
+network 30.30.30.0 mask 255.255.255.252
+redistribute ospf 1
 neighbor 30.30.30.2 remote-as 9999
 redistribute connected
 ```
@@ -214,6 +216,8 @@ redistribute bgp 9999 subnets
 router bgp 9999
 no synchronization
 bgp log-neighbor-changes
+network 30.30.30.0 mask 255.255.255.252
+redistribute ospf 1
 neighbor 30.30.30.1 remote-as 9999
 redistribute connected
 ```
