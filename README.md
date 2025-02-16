@@ -189,22 +189,23 @@ ip firewall nat add chain=srcnat action=Masquerade
 ## BGP SITE A
 
 ```bash
-router bgp 65001
-bgp router-id 5.5.5.1
-neighbor 113.12.18.1 remote-as 65002
-neighbor 113.12.18.1 update-source fa0/0
-network 202.11.3.0 mask 255.255.255.252
-network 202.11.3.4 mask 255.255.255.252
+int fa2/0
+ip add 30.30.30.1 255.255.255.252
+no sh
+router bgp 3333
+bgp router-id 5.5.5.1 ( opsional )
+neighbor 30.30.30.2 remote-as 9999
+redistribute connected
 ```
 
 ## BGP SITE B
 
 ```bash
-router bgp 65002
-bgp router-id 7.7.7.7
-neighbor 202.11.3.1 remote-as 65001
-neighbor 202.11.3.1 update-source fa2/0
-network 113.12.18.0 mask 255.255.255.252
-network 113.12.18.4 mask 255.255.255.252
-network 113.12.18.12 mask 255.255.255.252
+int fa0/0
+ip add 30.30.30.2 255.255.255.252
+no sh
+router bgp 9999
+bgp router-id 7.7.7.7 ( opsional )
+neighbor 30.30.30.1 remote-as 9999
+redistribute connected
 ```
