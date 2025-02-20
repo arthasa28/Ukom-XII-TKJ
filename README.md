@@ -218,7 +218,7 @@ no synchronization
 bgp log-neighbor-changes
 network 30.30.30.0 mask 255.255.255.252
 redistribute ospf 1
-neighbor 30.30.30.1 remote-as 9999
+neighbor 30.30.30.1 remote-as 3333
 redistribute connected
 ```
 
@@ -285,6 +285,6 @@ no synchronization
 bgp log-neighbor-changes
 network 30.30.30.0 mask 255.255.255.252
 redistribute ospf 1
-neighbor 30.30.30.1 remote-as 9999
+neighbor 30.30.30.1 remote-as 3333
 no auto-summary
 ```
