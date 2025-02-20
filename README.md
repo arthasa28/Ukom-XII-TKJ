@@ -221,3 +221,30 @@ redistribute ospf 1
 neighbor 30.30.30.1 remote-as 9999
 redistribute connected
 ```
+
+## Pengamanan Port Service CISCO
+
+```bash
+username arthasa privilege 15 secret 1212
+no ip http server
+no ip http secure-server
+no cdp run
+no service finger
+no service pad
+no service tcp-small-servers
+no service udp-small-servers
+```
+
+## Pengamanan Port Service MIKROTIK
+
+```bash
+user add name=arthasa group=full password=1212
+user disable admin
+ip service disable telnet 
+ip service disable ftp 
+ip service disable www
+ip service disable www-ssl
+
+ip service set ssh port=2200
+ip service set winbox port=8200
+```
