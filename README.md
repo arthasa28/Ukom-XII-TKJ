@@ -252,3 +252,39 @@ ip service disable www-ssl
 ip service set ssh port=2200
 ip service set winbox port=8200
 ```
+
+<br>
+
+## Routing Experimen Site A
+```bash
+int fa2/0
+ip add 30.30.30.1 255.255.255.252
+no sh
+router ospf 1
+log-adjacency-changes
+redistribute bgp 3333 subnets
+router bgp 3333
+no synchronization
+bgp log-neighbor-changes
+network 30.30.30.0 mask 255.255.255.252
+redistribute ospf 1
+neighbor 30.30.30.2 remote-as 9999
+no auto-summary
+```
+
+## Routing Experimen Site B
+```bash
+int fa0/0
+ip add 30.30.30.2 255.255.255.252
+no sh
+router ospf 1
+log-adjacency-changes
+redistribute bgp 9999 subnets
+router bgp 9999
+no synchronization
+bgp log-neighbor-changes
+network 30.30.30.0 mask 255.255.255.252
+redistribute ospf 1
+neighbor 30.30.30.1 remote-as 9999
+no auto-summary
+```
