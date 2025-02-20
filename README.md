@@ -222,6 +222,10 @@ neighbor 30.30.30.1 remote-as 9999
 redistribute connected
 ```
 
+## Peroutingan Antar Site A & Site B
+Silakan klik [Routingan](https://chatgpt.com/share/67b70443-d57c-8008-8e14-33d46a520d12) untuk informasi lebih lanjut. 
+
+
 ## Pengamanan Port Service CISCO
 
 ```bash
